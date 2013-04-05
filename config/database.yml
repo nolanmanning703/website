@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  database: dev-nathanl
+  username: postgres
+  password:
+
+test:
+  adapter: postgresql
+  database: test-nathanl
+  username: postgres
+  password:
+
+production:
+  adapter: postgresql
+  database: nathanl
+  username: postgres
+  password:

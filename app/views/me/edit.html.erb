@@ -1,0 +1,6 @@
+<%= form_tag( { :controller => :me, :action => :update }, { :method => :put } ) do %>
+  <%= label_tag(:about, "About Me:") %><br>
+  <%= text_area_tag(:about, @me.about) %><br>
+
+  <%= submit_tag %>
+<% end %>
