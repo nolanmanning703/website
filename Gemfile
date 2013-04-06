@@ -18,6 +18,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.0.1'
 
+# Heroku assets and log support
+gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+
 group :assets do
   gem 'jquery-rails'
   gem 'sass-rails',   '~> 4.0.0.beta1'
