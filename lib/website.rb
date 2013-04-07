@@ -4,3 +4,5 @@
 #
 module Nathanl
 end
+
+require 'website/markdownable'

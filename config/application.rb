@@ -7,5 +7,6 @@ Bundler.require(*Rails.groups(assets: %w(development test)))
 
 module Nathanl
   class Application < Rails::Application
+    require 'website'
   end
 end

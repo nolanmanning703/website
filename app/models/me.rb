@@ -1,5 +1,6 @@
 class Me < ActiveRecord::Base
   include ActiveRecord::Singleton
+  include Markdownable
 
   def name
     "Nathan Lilienthal"

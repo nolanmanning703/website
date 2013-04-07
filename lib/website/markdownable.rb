@@ -1,4 +1,4 @@
-require 'nathanl/coderay_renderer'
+require 'website/coderay_renderer'
 require 'redcarpet'
 
 module Markdownable
