@@ -1,5 +1,14 @@
 class PostsController < ApplicationController
+  before_filter :except => [:index, :show] do
+    # authenticate
+  end
+
+  before_filter :except => [:index, :new, :create] do
+    @post = Post.where('lower(title) = ?', params[:id].gsub('_',' ')).first
+  end
+
   def index
+    @posts = Post.all
   end
 
   def new
@@ -8,7 +17,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(params.require(:post).permit(:content))
+    @post = Post.create(params.require(:post).permit(:content, :title))
     if @post
       redirect_to post_path(@post), :notice => "Created post."
     else
@@ -16,17 +25,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def show
-    @post = Post.find(params[:id])
-    render :text => @post.markdown(:content), :layout => true
-  end
-
-  def edit
-    @post = Post.find(params[:id])
-  end
-
   def update
-    @post = Post.find(params[:id])
     if @post.update_attributes(params.require(:post).permit(:content))
       redirect_to post_url(@post), :notice => "Updated post."
     else

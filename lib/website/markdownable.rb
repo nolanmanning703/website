@@ -8,7 +8,7 @@ module Markdownable
       :fenced_code_blocks => true,
     }
     markdown = Redcarpet::Markdown.new(CoderayRenderer, options)
-    markdown.render send(field)
+    markdown.render send(field) || ""
   end
 
 end

@@ -2,6 +2,8 @@ class Me < ActiveRecord::Base
   include ActiveRecord::Singleton
   include Markdownable
 
+  has_many :posts
+
   def name
     "Nathan Lilienthal"
   end

@@ -3,7 +3,7 @@ class MainController < ApplicationController
   def index
     @post = Post.first
     if @post
-      render :text => @post.markdown(:content), :layout => true
+      render :template=> 'posts/show'
     else
       redirect_to :me
     end

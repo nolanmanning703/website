@@ -1,7 +1,9 @@
 class MeController < ApplicationController
-  before_filter do
-    @me = Me.instance
+  before_filter :only => [:edit, :update] do
+    # authentication
   end
+
+  before_filter { @me = Me.instance }
 
   def update
     @me.update_attribute(:about, params[:about])
