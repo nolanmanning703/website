@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   before_filter :except => [:index, :new, :create] do
-    @post = Post.where('lower(title) = ?', params[:id].gsub('_',' ')).first
+    @post = Post.find(params[:id])
   end
 
   def index

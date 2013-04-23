@@ -5,9 +5,9 @@ Nathanl::Application.routes.draw do
   get  'login'  => 'authentication#new'
   get  'logout' => 'authentication#logout'
 
-  put 'me'      => 'me#update'
-  get 'me'      => 'me#show'
-  get 'me/edit' => 'me#edit'
+  patch 'me'      => 'me#update'
+  get   'me'      => 'me#show'
+  get   'me/edit' => 'me#edit'
 
   resources :posts
 end
