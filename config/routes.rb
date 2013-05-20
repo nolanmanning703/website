@@ -1,13 +1,14 @@
 Nathanl::Application.routes.draw do
-  root to: 'main#index'
+  root to: 'main#index', :as => 'home'
 
-  post 'login'  => 'authentication#create'
-  get  'login'  => 'authentication#new'
-  get  'logout' => 'authentication#logout'
+  get    'login'  => 'sessions#new',     :as => 'sessions'
+  post   'login'  => 'sessions#create',  :as => 'sessions'
+  get    'logout' => 'sessions#destroy', :as => 'sessions'
+  delete 'logout' => 'sessions#destroy', :as => 'sessions'
 
-  patch 'me'      => 'me#update'
-  get   'me'      => 'me#show'
-  get   'me/edit' => 'me#edit'
+  resource :me, :controller => :me, :except => [:new, :create, :destroy] do
+    get 'change_password' => 'me#change_password', :as => 'change_password'
+  end
 
   resources :posts
 end

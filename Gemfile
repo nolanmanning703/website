@@ -6,7 +6,7 @@ gem 'pg'
 gem 'acts_as_singleton'
 
 # Authentication password encryption
-gem "bcrypt-ruby", :require => "bcrypt"
+gem "bcrypt-ruby"
 
 # Markdown parsing
 gem "redcarpet"

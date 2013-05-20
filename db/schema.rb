@@ -17,6 +17,8 @@ ActiveRecord::Schema.define(version: 20130405221334) do
   enable_extension "plpgsql"
 
   create_table "mes", force: true do |t|
+    t.string   "password_digest"
+    t.string   "auth_token"
     t.text     "about"
     t.datetime "created_at"
     t.datetime "updated_at"

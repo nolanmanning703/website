@@ -1,17 +1,17 @@
 development:
   adapter: postgresql
-  database: dev-nathanl
+  database: dev-website
   username: postgres
   password:
 
 test:
   adapter: postgresql
-  database: test-nathanl
+  database: test-website
   username: postgres
   password:
 
 production:
   adapter: postgresql
-  database: nathanl
+  database: website
   username: postgres
   password:

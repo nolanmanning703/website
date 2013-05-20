@@ -8,13 +8,21 @@
 </head>
 <body>
 
+<% if flash[:alert] %>
+  <div class='alert'><p><%=h flash[:alert] %></p></div>
+<% end %>
+
+<% if flash[:notice] %>
+  <div class='notice'><p><%=h flash[:notice] %></p></div>
+<% end %>
+
 <div class="container">
   <div class="sidebar">
     <div id="rb_pixels" class="pixels"></div>
     <ul>
-      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Home", home_path %></li>
       <li><%= link_to "Blog", posts_path %></li>
-      <li><a href="#">Code</a></li>
+      <li><%= link_to "Code", '#' %></li>
       <li><%= link_to "About", me_path %></li>
     </ul>
   </div>

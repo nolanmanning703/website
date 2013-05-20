@@ -1,13 +1,28 @@
 class MeController < ApplicationController
-  before_filter :only => [:edit, :update] do
-    # authentication
+  before_filter :except => :show do
+    redirect_to home_path unless logged_in?
   end
 
-  before_filter { @me = Me.instance }
+  def show
+    render :text => Me.instance.markdown(:about), :layout => true
+  end
 
   def update
-    @me.update_attribute(:about, params[:me][:about])
-    redirect_to :action => :show
+    if Me.instance.update_attributes(me_params)
+      redirect_to :action => :show
+    else
+      if me_params.include?(:about)
+        render :edit
+      else
+        render :change_password
+      end
+    end
+  end
+
+  private
+
+  def me_params
+    params.require(:me).permit(:about, :password, :password_confirmation)
   end
 
 end

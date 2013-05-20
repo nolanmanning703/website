@@ -2,6 +2,14 @@ class Me < ActiveRecord::Base
   include ActiveRecord::Singleton
   include Markdownable
 
+  # Save password as a digest in the database, with authentication
+  # handled in the model.
+  has_secure_password :validations => true
+
+  # Create an :auth_token for me to use to store the session.
+  before_create { self.auth_token = SecureRandom.urlsafe_base64 }
+
+  # I have posts, like a blog or something.
   has_many :posts
 
   def name
