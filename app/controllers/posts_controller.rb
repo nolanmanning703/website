@@ -3,16 +3,12 @@ class PostsController < ApplicationController
     redirect_to home_path unless logged_in?
   end
 
-  before_filter :except => [:index, :new, :create] do
-    @post = Post.find(params[:id])
-  end
-
   def index
     @posts = Post.all
   end
 
   def show
-    render :text => @post.markdown(:content), :layout => true
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -30,6 +26,8 @@ class PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+
     if @post.update_attributes(posts_params)
       redirect_to post_url(@post), :notice => "Updated post."
     else

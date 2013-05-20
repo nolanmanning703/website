@@ -3,10 +3,6 @@ class MeController < ApplicationController
     redirect_to home_path unless logged_in?
   end
 
-  def show
-    render :text => Me.instance.markdown(:about), :layout => true
-  end
-
   def update
     if Me.instance.update_attributes(me_params)
       redirect_to :action => :show

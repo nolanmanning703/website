@@ -1,6 +1,4 @@
 <%= form_for Me.instance, :url => me_path do |f| %>
-  <%= f.label(:about, "About Me:") %><br/>
-  <%= f.text_area(:about) %><br/>
-
+  <%= f.text_area :about %><br/>
   <%= f.submit %>
 <% end %>
