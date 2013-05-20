@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
   def home
     if @post = Post.first
-      render :template => 'posts/show'
+      render :text => @post.markdown(:content), :layout => true
     else
       redirect_to :me
     end

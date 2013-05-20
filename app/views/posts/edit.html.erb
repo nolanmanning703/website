@@ -1,6 +1,11 @@
-<%= form_for @post, :html => { :class => 'post' } do |f| %>
-  <%= f.text_field :title %><br/>
+<% @post.errors.each do |m, v| %>
+  <%= "#{m} #{v}" %>
+<% end %>
 
+<%= form_for @post, :html => { :class => 'post' } do |f| %>
   <%= f.text_area :content %><br/>
   <%= f.submit %>
+  <% unless @post.new_record? %>
+    <%= link_to "Delete Post", post_path(@post), :method => :delete %>
+  <% end %>
 <% end %>
