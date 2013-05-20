@@ -1,5 +1,5 @@
 Nathanl::Application.routes.draw do
-  root to: 'main#index', :as => 'home'
+  root to: 'pages#home', :as => 'home'
 
   get    'login'  => 'sessions#new',     :as => 'sessions'
   post   'login'  => 'sessions#create',  :as => 'sessions'
