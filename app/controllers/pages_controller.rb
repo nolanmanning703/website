@@ -1,11 +1,8 @@
 class PagesController < ApplicationController
 
+  # home home home.
   def home
-    if @post = Post.first
-      render :template => 'posts/show'
-    else
-      redirect_to :me
-    end
+    render :home, :layout => 'home'
   end
 
 end

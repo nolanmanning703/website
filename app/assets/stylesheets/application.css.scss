@@ -17,31 +17,3 @@
   @include outer-container;
   margin: 0 auto;
 }
-
-.sidebar {
-  @include span-columns(3);
-
-  ul li {
-    margin-bottom: 15px;
-  }
-
-  ul {
-    padding: 0;
-    list-style: none;
-  }
-
-  @media only screen and (max-width : 700px) {
-    ul:after {
-      content: ".";
-      display: block;
-      clear: both;
-      visibility: hidden;
-      line-height: 0;
-      height: 0;
-     }
-  }
-}
-
-.main {
-  @include span-columns(9);
-}

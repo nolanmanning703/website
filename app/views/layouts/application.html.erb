@@ -9,23 +9,24 @@
 <body>
 
 <% if flash[:alert] %>
-  <div class='alert'><p><%=h flash[:alert] %></p></div>
+  <div class='alert'><p><%= flash[:alert] %></p></div>
 <% end %>
 
 <% if flash[:notice] %>
-  <div class='notice'><p><%=h flash[:notice] %></p></div>
+  <div class='notice'><p><%= flash[:notice] %></p></div>
 <% end %>
 
 <div class="container">
-  <div class="sidebar">
-    <div class="rb-pixels"></div>
+  <%= yield :jumbotron %>
+
+  <nav>
     <ul>
       <li><%= link_to "Home", home_path %></li>
       <li><%= link_to "Blog", posts_path %></li>
       <li><%= link_to "Code", '#' %></li>
       <li><%= link_to "About", me_path %></li>
     </ul>
-  </div>
+  </nav>
 
   <div class="main">
       <%= yield %>
