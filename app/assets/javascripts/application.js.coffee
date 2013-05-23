@@ -19,7 +19,5 @@ create_rb_pixels = ->
 
 $(window).bind 'page:change', ->
   create_rb_pixels()
-  window.scroll(0,10000)
 $ ->
   create_rb_pixels()
-  window.scroll(0,10000)
