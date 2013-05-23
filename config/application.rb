@@ -8,5 +8,7 @@ Bundler.require(*Rails.groups(assets: %w(development test)))
 module Nathanl
   class Application < Rails::Application
     require 'website'
+
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
   end
 end

@@ -1,14 +1,14 @@
 // CSS Libraries
-@import "normalize";
+@import "normalize-css/normalize";
 @import "bourbon";
 @import "neat";
 
+// My Libraries
+@import "syntax";
+
 // Site-wide base styles
 @import "base";
-
-// My Libraries
-@import "pixels";
-@import "syntax";
+@import "components/rb_pixels";
 
 // Specific styles
 @import "posts";

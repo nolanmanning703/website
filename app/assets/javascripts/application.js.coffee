@@ -10,22 +10,24 @@
 # WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 # GO AFTER THE REQUIRES BELOW.
 #
-#= require jquery
-#= require jquery_ujs
+#= require jquery/jquery
+#= require divy/lib/divy
 #= require turbolinks
 #= require_tree .
 
 create_rb_pixels = ->
-  red   = "#ff1419"
+  red   = "#f00"
   white = "#fff"
-  rb_pixels =
-    data  : [[red,   red,   red,   red,   red,   red,   red,   red,   red],
-             [red,   red,   red,   red,   red,   red,   red,   red,   red],
-             [red,   red,   white, white, red,   white, red,   red,   red],
-             [red,   red,   white, red,   red,   white, white, red,   red],
-             [red,   red,   red,   red,   red,   red,   red,   red,   red],
-             [red,   red,   red,   red,   red,   red,   red,   red,   red]]
-  pixels.create rb_pixels, document.getElementById("rb_pixels")
+
+  rb_pixels = [
+    [red,   red,   red,   red,   red,   red,   red,   red,   red],
+    [red,   red,   red,   red,   red,   red,   red,   red,   red],
+    [red,   red,   white, white, red,   white, red,   red,   red],
+    [red,   red,   white, red,   red,   white, white, red,   red],
+    [red,   red,   red,   red,   red,   red,   red,   red,   red],
+    [red,   red,   red,   red,   red,   red,   red,   red,   red],
+  ]
+  $('.rb-pixels').divy(rb_pixels, { 'ratio' : 'fixed' });
 
 $(window).bind 'page:change', ->
   create_rb_pixels()

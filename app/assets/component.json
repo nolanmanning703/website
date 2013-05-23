@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "jquery": "latest",
+    "divy": "latest",
+
+    "normalize-css": "latest"
+  }
+}
